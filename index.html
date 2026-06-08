@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAMURAI TRIP | Premium Traditional Kendo Experience Tokyo</title>
+    <style>
+        /* Modern Reset & Premium Typography */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth; /* メニュークリック時に滑らかにスクロール */
+        }
+        body {
+            font-family: 'Playfair Display', 'Times New Roman', 'Georgia', serif;
+            background-color: #0b0b0b;
+            color: #f5f5f5;
+            line-height: 1.9;
+            letter-spacing: 0.08em;
+            overflow-x: hidden;
+        }
+        p, a, span, .btn-luxury, .nav-links a, .badge-gold, .art-caption {
+            font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+            letter-spacing: 0.15em;
+        }
+
+        /* WABUNKA Inspired Luxury Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(11,11,11,0.95) 0%, rgba(11,11,11,0.8) 70%, rgba(11,11,11,0) 100%);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 400;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .logo span {
+            color: #c5a059;
+            font-weight: 300;
+        }
+        .nav-links {
+            display: flex;
+            gap: 45px;
+            align-items: center;
+        }
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+            position: relative;
+            padding-bottom: 4px;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: #c5a059;
+            transition: width 0.4s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links a:hover {
+            color: #c5a059;
+        }
+
+        /* Fullscreen Theater Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero-video-wrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: #0b0b0b;
+        }
+        .hero-video-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.35;
+            filter: contrast(110%) brightness(80%) grayscale(30%);
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(11,11,11,0.2) 0%, rgba(11,11,11,0.9) 100%);
+            z-index: 2;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 1000px;
+        }
+        .badge-gold {
+            font-size: 11px;
+            color: #c5a059;
+            text-transform: uppercase;
+            border: 1px solid #c5a059;
+            padding: 8px 20px;
+            display: inline-block;
+            margin-bottom: 35px;
+            background-color: rgba(197, 160, 89, 0.05);
+        }
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            line-height: 1.25;
+            color: #ffffff;
+            margin-bottom: 30px;
+        }
+        .hero p {
+            font-size: 16px;
+            color: #cccccc;
+            max-width: 750px;
+            margin: 0 auto 50px auto;
+            line-height: 2;
+            font-weight: 300;
+        }
+        .btn-luxury {
+            display: inline-block;
+            padding: 20px 50px;
+            border: 1px solid #c5a059;
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 12px;
+            background-color: rgba(11,11,11,0.6);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            z-index: 1;
+        }
+        .btn-luxury::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: #c5a059;
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+        .btn-luxury:hover::before {
+            width: 100%;
+        }
+        .btn-luxury:hover {
+            color: #0b0b0b;
+        }
+
+        /* Abstract Elegant Content Section */
+        .section-luxury {
+            padding: 140px 10%;
+            background-color: #0b0b0b;
+            position: relative;
+        }
+        .section-luxury.alt-bg {
+            background-color: #111111;
+        }
+        .section-intro-center {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px auto;
+        }
+        .section-subtitle {
+            font-size: 12px;
+            color: #c5a059;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .section-title {
+            font-size: 40px;
+            font-weight: 300;
+            text-transform: uppercase;
+            color: #ffffff;
+            letter-spacing: 0.1em;
+        }
+        .gold-line-center {
+            width: 50px;
+            height: 1px;
+            background-color: #c5a059;
+            margin: 30px auto 0 auto;
+        }
+
+        /* Symmetric & Fine Grid Layouts */
+        .split-row {
+            display: flex;
+            align-items: center;
+            gap: 100px;
+        }
+        .split-col-text {
+            flex: 1;
+        }
+        .split-col-text h3 {
+            font-size: 28px;
+            font-weight: 300;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        .split-col-text p {
+            color: #aaaaaa;
+            font-size: 15px;
+            margin-bottom: 35px;
+            font-weight: 300;
+        }
+        .split-col-img {
+            flex: 1;
+            position: relative;
+        }
+        .img-container {
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            padding: 15px;
+            background-color: #0b0b0b;
+        }
+        .img-container img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            filter: grayscale(15%);
+        }
+
+        /* Master Showcase Highlight Area */
+        .premium-banner-box {
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            background: linear-gradient(135deg, #111111 0%, #161616 100%);
+            display: flex;
+            margin-top: 40px;
+        }
+        .premium-banner-box.reverse {
+            flex-direction: row-reverse;
+        }
+        .banner-img-side {
+            flex: 1.1;
+            position: relative;
+        }
+        .banner-img-side img {
+            width: 100%;
+            height: 100%;
+            min-height: 450px;
+            object-fit: cover;
+        }
+        .banner-text-side {
+            flex: 0.9;
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Expanded 16-Frame Museum Gallery Grid */
+        .art-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4列に整列してラグジュアリー感を向上 */
+            gap: 25px;
+            margin-top: 60px;
+        }
+        .art-card {
+            background-color: #111111;
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 12px;
+            transition: transform 0.4s ease, border 0.4s ease;
+        }
+        .art-card:hover {
+            transform: translateY(-5px);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+        }
+        .art-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            filter: grayscale(10%);
+        }
+        .art-card img:hover {
+            filter: grayscale(0%);
+        }
+        .art-caption {
+            font-size: 10px;
+            color: #777777;
+            text-transform: uppercase;
+            margin-top: 15px;
+            text-align: center;
+            letter-spacing: 0.2em;
+        }
+
+        /* Footer & Elegant Final CTA */
+        footer {
+            background-color: #070707;
+            padding: 120px 10% 60px 10%;
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+            text-align: center;
+        }
+        .footer-cta-title {
+            font-size: 42px;
+            font-weight: 300;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+        .footer-cta-desc {
+            color: #888888;
+            font-size: 15px;
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+        }
+        .footer-directory {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 1000px;
+            margin: 80px auto 60px auto;
+            text-align: left;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 60px;
+        }
+        .directory-col h4 {
+            font-size: 12px;
+            color: #c5a059;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+        .directory-col ul {
+            list-style: none;
+        }
+        .directory-col ul li {
+            margin-bottom: 12px;
+        }
+        .directory-col ul li a {
+            color: #888888;
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+        .directory-col ul li a:hover {
+            color: #ffffff;
+        }
+        .copyright {
+            font-size: 11px;
+            color: #555555;
+            margin-top: 60px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Luxury Floating Navigation Header -->
+    <header>
+        <a href="#" class="logo">SAMURAI <span>TRIP</span></a>
+        <nav class="nav-links">
+            <a href="#">Top</a>
+            <a href="#about">About Kendo</a>
+            <a href="#experience">The Experience</a>
+            <a href="#mice">MICE & Corporate</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact" class="btn-luxury" style="padding: 10px 25px; margin-left: 20px;">Inquire</a>
+        </nav>
+    </header>
+
+    <!-- Fullscreen Visual Entrance Hero -->
+    <section class="hero">
+        <div class="hero-video-wrap">
+            <img src="TOKYO.jpg" alt="SAMURAI TRIP Elite Masterclass Frame">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge-gold">The Peak of Cultural Experience</span>
+            <h1>The Fine Art of <br>Japanese Swordsmanship</h1>
+            <p>Immerse your senses in the ultimate private Kendo masterpiece session in Tokyo. Crafted exclusively for global leaders, luxury travelers, and distinguished corporate gatherings seeking deep mental fortitude.</p>
+            <a href="#experience" class="btn-luxury">Explore The Journey</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-luxury">
+        <div class="container-luxury">
+            <div class="section-intro-center">
+                <span class="section-subtitle">The Spirit Architecture</span>
+                <h2 class="section-title">What is Kendo?</h2>
+                <div class="gold-line-center"></div>
+            </div>
+
+            <div class="split-row">
+                <div class="split-col-text">
+                    <h3>A Lifelong Spiritual Journey Beyond Martial Disciplines</h3>
+                    <p>Kendo—the legendary Way of the Sword—is an ancient, reverent Japanese martial tradition passed down directly from the noble Samurai lineages. It serves to discipline human character through the absolute principles of the Katana.</p>
+                    <p>By mastering immaculate posture, focused breathing coordinates, and unleashing the powerful vocalized shout known as Kiai, guests transcend ordinary physical exercise to awaken supreme inner stillness, mutual respect, and profound mental alignment.</p>
+                    <p>Our completely seamless English-guided programs eliminate all cross-cultural friction, inviting you directly into the sacred spatial flow of the traditional Dojo.</p>
+                </div>
+                <div class="split-col-img">
+                    <div class="img-container">
+                        <img src="★_MG_6529.jpg" alt="Authentic Kendo Traditional Forms">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section-luxury alt-bg">
+        <div class="container-luxury">
+            <div class="section-intro-center">
+                <span class="section-subtitle">Excellence Credentialed</span>
+                <h2 class="section-title">The Signature Masterpiece</h2>
+                <div class="gold-line-center"></div>
+            </div>
+
+            <!-- Japan Travel Awards Premium Banner -->
+            <div class="premium-banner-box">
+                <div class="banner-img-side">
+                    <img src="DSC06266.jpg" alt="Japan Travel Awards Official Presentation">
+                </div>
+                <div class="banner-text-side">
+                    <span class="section-subtitle" style="margin-bottom: 10px;">Official Winner</span>
+                    <h3 style="font-size: 24px; font-weight: 300; color: #fff; margin-bottom: 20px; text-transform: uppercase;">Japan Travel Awards 2025</h3>
+                    <p style="color: #aaa; font-size: 14px; font-weight: 300; line-height: 1.8; margin-bottom: 0;">SAMURAI TRIP has been crowned with the highly coveted <strong>Best Inbound Travel Experience Award</strong>. Celebrated for pristine cultural authenticity, exceptional elite hospitality setups, and supreme storytelling engagement frameworks.</p>
+                </div>
+            </div>
+
+            <!-- Single Refined Experience Focus Box -->
+            <div class="premium-banner-box reverse">
+                <div class="banner-img-side">
+                    <img src="JTA_SamuraiTrip2.jpg" alt="Interactive Target Engagements">
+                </div>
+                <div class="banner-text-side">
+                    <span class="section-subtitle" style="margin-bottom: 10px;">The Main Tour</span>
+                    <h3 style="font-size: 24px; font-weight: 300; color: #fff; margin-bottom: 20px; text-transform: uppercase;">Main Kendo Experience Tour</h3>
+                    <p style="color: #aaa; font-size: 14px; font-weight: 300; line-height: 1.8; margin-bottom: 0;">Don the full traditional armor (Bogu), wield the bamboo shinai, and learn the strike patterns utilized by ancient masters. This iconic experience perfectly balances strict traditional reverence with an exhilarating, high-spirited balloon-popping competition among your selective peers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MICE Section -->
+    <section id="mice" class="section-luxury">
+        <div class="container-luxury">
+            <div class="split-row" style="flex-direction: row-reverse;">
+                <div class="split-col-text">
+                    <span class="section-subtitle">Global Delegations</span>
+                    <h3 style="font-size: 36px; font-weight: 300; margin-bottom: 25px;">Corporate MICE & Elite Team Building</h3>
+                    <p>Elevate your organizational synergy beyond conventional executive retreats. SAMURAI TRIP delivers custom, high-impact cultural alignment courses engineered for international business summits, luxury incentive operations, and diplomatic networks.</p>
+                    <p>With direct physical logistical access to historic grand dojos and immaculate equipment reserves, we handle premium reservation blocks ranging effortlessly from <strong>50 up to over 300 concurrent participants</strong> with flawless execution standards.</p>
+                </div>
+                <div class="split-col-img">
+                    <div class="img-container">
+                        <img src="00.jpg" alt="Corporate Convention Execution Framework">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 16-Frame Museum Gallery Grid Section -->
+    <section id="gallery" class="section-luxury alt-bg">
+        <div class="container-luxury">
+            <div class="section-intro-center">
+                <span class="section-subtitle">Dojo Artifacts & Moments</span>
+                <h2 class="section-title">The Curation Gallery</h2>
+                <p style="font-size: 13px; color: #666; margin-top: 15px;">A visual record of unwavering spirit and precision training.</p>
+                <div class="gold-line-center"></div>
+            </div>
+
+            <div class="art-gallery-grid">
+                <!-- 手持ちの10枚の割り当てエリア -->
+                <div class="art-card"><img src="DSC06506.jpg" alt="Gallery Image 1"><div class="art-caption">Moment of Kiai</div></div>
+                <div class="art-card"><img src="S__227696656.jpg" alt="Gallery Image 2"><div class="art-caption">The Sacred Kinship</div></div>
+                <div class="art-card"><img src="DSC_3069.jpg" alt="Gallery Image 3"><div class="art-caption">Posture Alignment</div></div>
+                <div class="art-card"><img src="TOKYO.jpg" alt="Gallery Image 4"><div class="art-caption">Tokyo Assembly</div></div>
+                
+                <div class="art-card"><img src="★_MG_6529.jpg" alt="Gallery Image 5"><div class="art-caption">Traditional Strike</div></div>
+                <div class="art-card"><img src="DSC06266.jpg" alt="Gallery Image 6"><div class="art-caption">The Award Honor</div></div>
+                <div class="art-card"><img src="JTA_SamuraiTrip2.jpg" alt="Gallery Image 7"><div class="art-caption">Interactive Match</div></div>
+                <div class="art-card"><img src="00.jpg" alt="Gallery Image 8"><div class="art-caption">Grand Delegation</div></div>
+                
+                <div class="art-card"><img src="DSC06506.jpg" alt="Gallery Image 9"><div class="art-caption">Pure Focus</div></div>
+                <div class="art-card"><img src="★_MG_6529.jpg" alt="Gallery Image 10"><div class="art-caption">Ancient Katana Line</div></div>
+
+                <!-- 枠拡張：追加用の6枚エリア（手持ち画像を仮で再配置。新画像を追加するときはここを書き換えてください） -->
+                <div class="art-card"><img src="TOKYO.jpg" alt="Gallery Image 11"><div class="art-caption">Dojo Scenery I</div></div>
+                <div class="art-card"><img src="S__227696656.jpg" alt="Gallery Image 12"><div class="art-caption">Dojo Scenery II</div></div>
+                <div class="art-card"><img src="00.jpg" alt="Gallery Image 13"><div class="art-caption">Dojo Scenery III</div></div>
+                <div class="art-card"><img src="DSC_3069.jpg" alt="Gallery Image 14"><div class="art-caption">Dojo Scenery IV</div></div>
+                <div class="art-card"><img src="JTA_SamuraiTrip2.jpg" alt="Gallery Image 15"><div class="art-caption">Dojo Scenery V</div></div>
+                <div class="art-card"><img src="DSC06266.jpg" alt="Gallery Image 16"><div class="art-caption">Dojo Scenery VI</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <footer id="contact">
+        <div class="footer-cta-title">Begin Your Transcendence</div>
+        <p class="footer-cta-desc">Advance private coordination is mandatory to secure exclusive historical Dojo closures and custom artisan armor configurations.</p>
+        <a href="mailto:info@samuraitrip.com" class="btn-luxury">Request Private Invitation</a>
+
+        <div class="footer-directory">
+            <div class="directory-col">
+                <h4>Navigations</h4>
+                <ul>
+                    <li><a href="#">Top Portal</a></li>
+                    <li><a href="#about">About Kendo</a></li>
+                    <li><a href="#experience">The Experience</a></li>
+                    <li><a href="#mice">Corporate MICE</a></li>
+                </ul>
+            </div>
+            <div class="directory-col">
+                <h4>Location Hub</h4>
+                <ul>
+                    <li><a href="#">Chiyoda-ku, Tokyo</a></li>
+                    <li><a href="#">Dojo Booking Networks</a></li>
+                    <li><a href="#">Private Transfers</a></li>
+                </ul>
+            </div>
+            <div class="directory-col">
+                <h4>Inquiries</h4>
+                <ul>
+                    <li><a href="mailto:info@samuraitrip.com">info@samuraitrip.com</a></li>
+                    <li><a href="#">Press Relations</a></li>
+                    <li><a href="#">Executive Concierge</a></li>
+                </ul>
+            </div>
+            <div class="directory-col">
+                <h4>Accreditations</h4>
+                <ul>
+                    <li><a href="#">Japan Travel Awards 2025</a></li>
+                    <li><a href="#">Inbound Excellence Guild</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2026 SAMURAI TRIP. Engineered for Inbound Culture Excellence. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
